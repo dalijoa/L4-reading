@@ -1,47 +1,51 @@
-
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:var(--font-sans);background:#eef0f8;min-height:100vh;width:100%}
-.page{display:flex;flex-direction:column;align-items:center;padding:1.2rem 0.9rem 5rem;min-height:100vh}
-.title{font-size:17px;font-weight:700;color:#4a47a3;text-align:center;margin-bottom:3px;line-height:1.4}
-.subtitle{font-size:12px;color:#999;margin-bottom:0.9rem;text-align:center}
-.progress-wrap{width:100%;max-width:480px;display:flex;align-items:center;gap:8px;margin-bottom:1.2rem}
-.progress-bar-bg{flex:1;height:7px;background:#d0d3e8;border-radius:99px;overflow:hidden}
-.progress-bar-fill{height:100%;background:#4a47a3;border-radius:99px;transition:width .3s}
-.progress-label{font-size:12px;color:#4a47a3;font-weight:600;min-width:34px;text-align:right}
-.card{background:#fff;border-radius:18px;padding:1.5rem 1.2rem 1.2rem;width:100%;max-width:480px;min-height:200px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px rgba(74,71,163,0.07)}
-.sentence{font-size:15px;color:#222;line-height:2.6;display:flex;flex-wrap:wrap;align-items:center;gap:5px;word-break:keep-all}
-select{font-size:14px;padding:6px 8px;border:1.5px solid #b0b4d4;border-radius:10px;background:#f5f6fc;color:#333;cursor:pointer;outline:none;appearance:auto;max-width:100%;min-width:80px}
+html{font-size:16px}
+body{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans KR','Apple SD Gothic Neo',sans-serif;background:#eef0f8;min-height:100vh;display:flex;justify-content:center;align-items:flex-start}
+.page{width:100%;max-width:480px;min-height:100vh;display:flex;flex-direction:column;padding:1.4rem 1.1rem 2rem;gap:1rem}
+.title{font-size:1.15rem;font-weight:700;color:#4a47a3;text-align:center;line-height:1.5}
+.subtitle{font-size:0.8rem;color:#aaa;text-align:center;margin-top:2px}
+.progress-wrap{display:flex;align-items:center;gap:8px}
+.progress-bar-bg{flex:1;height:8px;background:#d0d3e8;border-radius:99px;overflow:hidden}
+.progress-bar-fill{height:100%;background:#4a47a3;border-radius:99px;transition:width .35s}
+.progress-label{font-size:0.8rem;color:#4a47a3;font-weight:700;min-width:38px;text-align:right}
+.card{background:#fff;border-radius:20px;padding:1.6rem 1.3rem 1.4rem;display:flex;flex-direction:column;gap:1.1rem;box-shadow:0 3px 16px rgba(74,71,163,0.1)}
+.sentence{font-size:1.05rem;color:#1a1a1a;line-height:2.8;display:flex;flex-wrap:wrap;align-items:center;gap:6px;word-break:keep-all}
+select{font-size:1rem;padding:7px 10px;border:2px solid #b0b4d4;border-radius:12px;background:#f5f6fc;color:#333;cursor:pointer;outline:none;-webkit-appearance:auto;appearance:auto;min-width:90px;max-width:100%}
 select:focus{border-color:#4a47a3}
-select.answered{border-color:#4a47a3;background:#edeefa;color:#4a47a3;font-weight:600}
-.hint-btn{align-self:flex-start;background:none;border:1.5px solid #d0d3e8;border-radius:20px;padding:6px 14px;font-size:12px;color:#4a47a3;cursor:pointer;display:flex;align-items:center;gap:5px}
-.hint-btn:active{background:#f0f1fa}
-.hint-text{font-size:13px;color:#555;background:#f5f6fc;border-radius:10px;padding:10px 12px;display:none;line-height:1.8;border-left:3px solid #b0b4d4;word-break:keep-all}
-.nav{position:fixed;bottom:0;left:0;right:0;display:flex;gap:10px;padding:0.85rem 1.2rem;background:rgba(238,240,248,0.97);backdrop-filter:blur(6px);border-top:1px solid #dde0ef;justify-content:center}
-.btn-prev{flex:1;max-width:160px;padding:13px 0;border-radius:99px;font-size:15px;font-weight:600;border:none;cursor:pointer;background:#ccc;color:#fff}
-.btn-next{flex:1;max-width:220px;padding:13px 0;border-radius:99px;font-size:15px;font-weight:600;border:none;cursor:pointer;background:#4a47a3;color:#fff}
-.result-card{background:#fff;border-radius:18px;padding:2.2rem 1.5rem;width:100%;max-width:480px;text-align:center;box-shadow:0 2px 12px rgba(74,71,163,0.07)}
-.result-score{font-size:52px;font-weight:800;color:#4a47a3;margin-bottom:4px}
-.result-total{font-size:15px;color:#999;margin-bottom:10px}
-.result-time{font-size:14px;color:#4a47a3;font-weight:600;background:#edeefa;display:inline-block;padding:6px 20px;border-radius:20px;margin-bottom:1rem}
-.result-msg{font-size:14px;color:#444;line-height:1.8;margin-bottom:1.2rem;word-break:keep-all}
-.capture-msg{font-size:13px;font-weight:700;color:#185FA5;background:#E6F1FB;padding:0.75rem 1rem;border-radius:12px;display:block;line-height:1.7}
-.retry-btn{margin-top:1.1rem;display:block;width:100%;padding:13px 0;border-radius:99px;font-size:15px;font-weight:600;border:none;cursor:pointer;background:#4a47a3;color:#fff}
+select.answered{border-color:#4a47a3;background:#edeefa;color:#4a47a3;font-weight:700}
+.hint-btn{align-self:flex-start;background:none;border:2px solid #d0d3e8;border-radius:99px;padding:7px 16px;font-size:0.85rem;color:#4a47a3;cursor:pointer;display:flex;align-items:center;gap:5px;font-weight:600}
+.hint-btn:active{background:#edeefa}
+.hint-text{font-size:0.9rem;color:#555;background:#f5f6fc;border-radius:12px;padding:12px 14px;display:none;line-height:1.9;border-left:4px solid #b0b4d4;word-break:keep-all}
+.nav{display:flex;gap:10px;margin-top:0.4rem}
+.btn-prev{flex:1;padding:15px 0;border-radius:99px;font-size:1rem;font-weight:700;border:none;cursor:pointer;background:#ccc;color:#fff;letter-spacing:0.02em}
+.btn-prev:active{background:#aaa}
+.btn-next{flex:2;padding:15px 0;border-radius:99px;font-size:1rem;font-weight:700;border:none;cursor:pointer;background:#4a47a3;color:#fff;letter-spacing:0.02em}
+.btn-next:active{background:#3835a0}
+.result-card{background:#fff;border-radius:20px;padding:2.4rem 1.6rem 2rem;text-align:center;box-shadow:0 3px 16px rgba(74,71,163,0.1)}
+.result-score{font-size:4rem;font-weight:800;color:#4a47a3;line-height:1}
+.result-total{font-size:1rem;color:#aaa;margin-top:6px}
+.result-time{font-size:0.95rem;color:#4a47a3;font-weight:700;background:#edeefa;display:inline-block;padding:7px 22px;border-radius:99px;margin-top:14px}
+.result-msg{font-size:0.95rem;color:#444;line-height:1.8;margin-top:14px;word-break:keep-all}
+.capture-msg{font-size:0.9rem;font-weight:700;color:#185FA5;background:#E6F1FB;padding:0.9rem 1.1rem;border-radius:14px;display:block;line-height:1.8;margin-top:16px}
+.retry-btn{margin-top:1.2rem;display:block;width:100%;padding:15px 0;border-radius:99px;font-size:1rem;font-weight:700;border:none;cursor:pointer;background:#4a47a3;color:#fff}
 </style>
-
+</head>
+<body>
 <div class="page">
-  <div class="title">Lesson 4. Are You a Smart Shopper?</div>
-  <div class="subtitle">한 문제씩 풀어보세요! 💪</div>
+  <div>
+    <div class="title">Lesson 4. Are You a Smart Shopper?</div>
+    <div class="subtitle">한 문제씩 풀어보세요! 💪</div>
+  </div>
   <div class="progress-wrap">
     <div class="progress-bar-bg"><div class="progress-bar-fill" id="pbar"></div></div>
     <div class="progress-label" id="plabel"></div>
   </div>
-  <div id="main-area" style="width:100%;max-width:480px"></div>
-</div>
-
-<div class="nav" id="nav-area">
-  <button class="btn-prev" onclick="go(-1)">← 이전</button>
-  <button class="btn-next" id="btn-next" onclick="go(1)">다음 →</button>
+  <div id="main-area"></div>
 </div>
 
 <script>
@@ -79,6 +83,7 @@ function renderCard(i){
   const q=qs[i];
   const ma=document.getElementById('main-area');
   ma.innerHTML='';
+
   const card=document.createElement('div');card.className='card';
   const sent=document.createElement('div');sent.className='sentence';
 
@@ -109,8 +114,19 @@ function renderCard(i){
   const hbtn=document.createElement('button');hbtn.className='hint-btn';hbtn.innerHTML='💡 힌트 보기';
   const htxt=document.createElement('div');htxt.className='hint-text';htxt.textContent=q.hint;
   hbtn.onclick=()=>{const vis=htxt.style.display==='block';htxt.style.display=vis?'none':'block';hbtn.innerHTML=vis?'💡 힌트 보기':'💡 힌트 숨기기';};
-  card.appendChild(hbtn);card.appendChild(htxt);
+  card.appendChild(hbtn);
+  card.appendChild(htxt);
   ma.appendChild(card);
+
+  // 버튼을 카드 바로 아래에 배치
+  const nav=document.createElement('div');nav.className='nav';nav.id='nav-area';
+  const bp=document.createElement('button');bp.className='btn-prev';bp.textContent='← 이전';bp.onclick=()=>go(-1);
+  const bn=document.createElement('button');bn.className='btn-next';bn.id='btn-next';
+  bn.textContent=i===N-1?'제출 ✓':'다음 →';
+  bn.onclick=()=>go(1);
+  nav.appendChild(bp);nav.appendChild(bn);
+  ma.appendChild(nav);
+
   updateProgress();
 }
 
@@ -137,7 +153,6 @@ function showResult(){
   const{c,t}=calcScore();
   const ma=document.getElementById('main-area');
   ma.innerHTML='';
-  document.getElementById('nav-area').style.display='none';
   document.getElementById('pbar').style.width='100%';
   document.getElementById('plabel').textContent=N+'/'+N;
   const rc=document.createElement('div');rc.className='result-card';
@@ -161,15 +176,12 @@ function go(dir){
   saveScore(cur);cur+=dir;
   if(cur>=N){showResult();return;}
   if(cur<0)cur=0;
-  document.getElementById('btn-next').textContent=cur===N-1?'제출 ✓':'다음 →';
   renderCard(cur);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function restart(){
   cur=0;scores.fill(null);startTime=null;
-  document.getElementById('nav-area').style.display='flex';
-  document.getElementById('btn-next').textContent='다음 →';
   renderCard(0);startTimer();
   window.scrollTo({top:0,behavior:'smooth'});
 }
@@ -177,3 +189,5 @@ function restart(){
 renderCard(0);
 startTimer();
 </script>
+</body>
+</html>
