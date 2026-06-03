@@ -67,6 +67,15 @@ const qs=[
   {before:"Information about a",b1:["product",["product","person","store","brand"]],mid:"can",b2:["spread",["spread","grow","appear","travel"]],after:'quickly and widely on the Internet, just like a "virus."',hint:"제품에 대한 정보가 인터넷에서 '바이러스'처럼 빠르고 널리 퍼질 수 있어."},
   {before:"",b1:["If",["If","Since","Although","Unless"]],mid:"a",b2:["product",["product","brand","store","ad"]],after:"becomes hot on social media, people naturally want to have it.",hint:"만약 어떤 제품이 소셜 미디어에서 인기를 끌게 되면, 사람들은 자연스럽게 그 제품을 갖고 싶어 해."},
   {before:"Yuna, just",b1:["remember",["remember","know","think","accept"]],mid:"that a",b2:["popular",["popular","cheap","trendy","famous"]],after:"product isn't always right for you.",hint:"유나야, 인기 있는 제품이 항상 너에게 맞는 것은 아니라는 걸 기억해."},
+  {before:"I'm",b1:["looking for",["looking for","shopping at","buying from","searching about"]],mid:"a lipstick",b2:["for",["for","to","with","about"]],after:"my mom.",hint:"저는 엄마를 위한 립스틱을 찾고 있어요."},
+  {before:"Salesperson: What",b1:["about",["about","if","for","else"]],mid:"this? Somi:",b2:["Expensive",["Expensive","Perfect","Beautiful","Lovely"]],after:"! I thought I could buy a lipstick for 30 dollars.",hint:"판매원: 이건 어때요? 소미: 비싸네요! 저는 립스틱을 30달러에 살 수 있을 줄 알았어요."},
+  {before:"This is also",b1:["popular",["popular","cheap","new","rare"]],mid:". Somi: That's",b2:["better",["better","great","fine","cheaper"]],after:"!",hint:"판매원: 이것도 인기가 많아요. 소미: 그게 더 좋네요!"},
+  {before:"",b1:["Hold on",["Hold on","Wait up","Come on","Slow down"]],mid:", Somi! Your",b2:["budget",["budget","price","plan","goal"]],after:"is 30 dollars, but you are buying a 40-dollar lipstick.",hint:"잠깐, 소미야! 너의 예산은 30달러지만, 너는 40달러짜리 립스틱을 사고 있어."},
+  {before:"The 40-dollar lipstick sounds",b1:["cheap",["cheap","good","nice","low"]],mid:"only because the salesperson",b2:["showed",["showed","gave","sold","offered"]],after:"you a 50-dollar lipstick first.",hint:"판매원이 50달러짜리 립스틱을 먼저 보여줬기 때문에 40달러짜리 립스틱이 저렴하게 들리는 거야."},
+  {before:"This is an",b1:["example",["example","effect","idea","case"]],mid:"of the",b2:["anchoring effect",["anchoring effect","viral marketing","hunger marketing","price strategy"]],after:".",hint:"이건 앵커링 효과의 예시야."},
+  {before:"Usually, the first piece of",b1:["information",["information","data","advice","news"]],mid:'becomes an "anchor" and',b2:["influences",["effects","influences","changes","decides"]],after:"the shopper's decision.",hint:"보통, 첫 번째 정보가 '닻'이 되고 쇼핑객의 결정에 영향을 미쳐."},
+  {before:"In your",b1:["case",["opinion","case","example","turn"]],mid:", the",b2:["50-dollar",["50-dollar","30-dollar","40-dollar","20-dollar"]],after:"lipstick was the anchor.",hint:"너의 경우에는, 50달러짜리 립스틱이 닻이였어."},
+  {before:"Somi, don't just",b1:["rely on",["rely on","hold on","think about","focus on"]],mid:"the first",b2:["piece",["piece","bit","part","type"]],after:"of information that is given to you.",hint:"소미야, 너에게 주어진 첫 번째 정보에만 의존하지 마."},
 ];
 
 const N=qs.length;
@@ -118,10 +127,9 @@ function renderCard(i){
   card.appendChild(htxt);
   ma.appendChild(card);
 
-  // 버튼을 카드 바로 아래에 배치
-  const nav=document.createElement('div');nav.className='nav';nav.id='nav-area';
+  const nav=document.createElement('div');nav.className='nav';
   const bp=document.createElement('button');bp.className='btn-prev';bp.textContent='← 이전';bp.onclick=()=>go(-1);
-  const bn=document.createElement('button');bn.className='btn-next';bn.id='btn-next';
+  const bn=document.createElement('button');bn.className='btn-next';
   bn.textContent=i===N-1?'제출 ✓':'다음 →';
   bn.onclick=()=>go(1);
   nav.appendChild(bp);nav.appendChild(bn);
